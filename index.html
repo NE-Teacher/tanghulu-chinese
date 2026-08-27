@@ -58,6 +58,12 @@
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("service-worker.js");
     });
+    let refreshedOnce = false;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (refreshedOnce) return;
+      refreshedOnce = true;
+      window.location.reload();
+    });
   }
 </script>
 </body>
