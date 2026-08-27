@@ -96,7 +96,7 @@
       if (i >= IMG_EXTS.length) {
         container.innerHTML =
           '<div class="pic-placeholder"><span class="icon">\u{1F5BC}</span>이미지 준비 중' +
-          '<br><span style="font-size:11px">이미지/' + id + '.jpg 로 추가하면 자동으로 표시돼요</span></div>';
+          '<br><span style="font-size:11px">원본 데이터/이미지/' + id + '.jpg 로 추가하면 자동으로 표시돼요</span></div>';
         return;
       }
       const img = new Image();
@@ -108,7 +108,7 @@
         i++;
         tryNext();
       };
-      img.src = resolveAsset("이미지/" + id + "." + IMG_EXTS[i]);
+      img.src = resolveAsset("원본 데이터/이미지/" + id + "." + IMG_EXTS[i]);
     }
     tryNext();
   }
@@ -180,13 +180,13 @@
             filledHtml += '<div class="translation">' + escapeHtml(q.translation) + "</div>";
           }
           filledHtml +=
-            '<button class="speak-btn" id="speakBtn" data-audio="tts/문장_' + q.id + '.mp3">🔊 문장 듣기</button>';
+            '<button class="speak-btn" id="speakBtn" data-audio="원본 데이터/tts/문장_' + q.id + '.mp3">🔊 문장 듣기</button>';
         }
       }
       answerBlockHtml =
         '<div class="answer">' +
         '<div class="answer-pinyin">' + escapeHtml(q.answer) + "</div>" +
-        '<div class="answer-audio"><button class="speak-btn answer-speak-btn" id="answerSpeakBtn" data-audio="tts/' +
+        '<div class="answer-audio"><button class="speak-btn answer-speak-btn" id="answerSpeakBtn" data-audio="원본 데이터/tts/' +
           q.id + '.mp3">🔊 발음 듣기</button></div>' +
         filledHtml +
         '<div class="explanation">' + escapeHtml(q.explanation) + "</div>" +
