@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>탕후루 중국어 - 정답 확인</title>
+<link rel="icon" type="image/png" href="mascot.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<img src="logo.png" alt="NE능률" class="brand-logo">
+<div class="app">
+  <aside class="sidebar">
+    <div class="banner">
+      <img src="banner.png" alt="탕후루 중국어">
+    </div>
+
+    <div class="jump">
+      <input type="number" id="jumpInput" min="1" max="60" placeholder="번호">
+      <button id="jumpBtn">이동</button>
+    </div>
+
+    <div class="filters" id="filters">
+      <select id="diffFilter">
+        <option value="all">난이도 전체</option>
+        <option value="1">난이도 1</option>
+        <option value="2">난이도 2</option>
+        <option value="3">난이도 3</option>
+      </select>
+      <select id="typeFilter">
+        <option value="all">유형 전체</option>
+        <option value="pinyin">한어병음</option>
+        <option value="picture">그림</option>
+        <option value="word">단어</option>
+        <option value="blank">빈칸</option>
+      </select>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </aside>
+
+  <main class="main">
+    <div class="card" id="card"></div>
+
+    <div class="nav">
+      <button id="prevBtn">← 이전</button>
+      <span id="posLabel"></span>
+      <button id="nextBtn">다음 →</button>
+    </div>
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js");
+    });
+  }
+</script>
+</body>
+</html>

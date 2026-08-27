@@ -1,0 +1,12 @@
+{
+  "name": "탕후루 중국어 - 정답 확인",
+  "short_name": "탕후루중국어",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ee",
+  "theme_color": "#c23b32",
+  "icons": [
+    { "src": "mascot.png", "sizes": "150x150", "type": "image/png" }
+  ]
+}
