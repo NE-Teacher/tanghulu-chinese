@@ -67,6 +67,19 @@
     typeFilterEl.value = currentType;
   }
 
+  function updateGridMaxHeight() {
+    const isMobile = window.matchMedia("(max-width: 720px)").matches;
+    if (!isMobile) {
+      gridEl.style.maxHeight = "";
+      return;
+    }
+    const firstBtn = gridEl.querySelector("button");
+    if (!firstBtn) return;
+    const btnHeight = firstBtn.offsetHeight;
+    const gapPx = parseFloat(getComputedStyle(gridEl).rowGap) || 0;
+    gridEl.style.maxHeight = 2.5 * btnHeight + 2 * gapPx + "px";
+  }
+
   function renderGrid() {
     const filtered = getFiltered();
     gridEl.innerHTML = "";
@@ -82,6 +95,7 @@
       btn.addEventListener("click", () => selectCard(q.id, { keepFilter: true }));
       gridEl.appendChild(btn);
     });
+    updateGridMaxHeight();
     if (currentBtn) currentBtn.scrollIntoView({ block: "nearest", inline: "nearest" });
 
     const idx = filtered.findIndex((q) => q.id === currentId);
@@ -288,6 +302,8 @@
       }
     }
   });
+
+  window.addEventListener("resize", updateGridMaxHeight);
 
   renderFilters();
   renderGrid();
